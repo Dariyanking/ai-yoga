@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Yoga Instructor - 5 Essential Asanas</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="logo">
+                    <i class="fas fa-spa"></i>
+                    <span>AI Yoga Instructor</span>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#poses">Poses</a></li>
+                    <li><a href="#practice">Practice</a></li>
+                    <li><a href="#about">About</a></li>
+                </ul>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <h1>Master 5 Essential Yoga Asanas</h1>
+                <p>Learn and practice fundamental yoga poses with AI-powered guidance and real-time feedback</p>
+                <div class="hero-buttons">
+                    <button class="btn btn-primary" onclick="startPractice()">
+                        <i class="fas fa-play"></i> Start Practice
+                    </button>
+                    <button class="btn btn-secondary" onclick="scrollToPoses()">
+                        <i class="fas fa-eye"></i> View Poses
+                    </button>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="yoga-illustration">
+                    <i class="fas fa-user-ninja"></i>
+                </div>
+            </div>
+        </section>
+
+        <!-- Poses Section -->
+        <section id="poses" class="poses-section">
+            <div class="container">
+                <h2 class="section-title">5 Essential Yoga Asanas</h2>
+                <p class="section-subtitle">Master these fundamental poses for a complete yoga practice</p>
+                
+                <div class="poses-grid">
+                    <!-- Mountain Pose -->
+                    <div class="pose-card" data-pose="mountain">
+                        <div class="pose-icon">
+                            <i class="fas fa-mountain"></i>
+                        </div>
+                        <h3>Mountain Pose</h3>
+                        <p class="pose-sanskrit">Tadasana</p>
+                        <p class="pose-description">The foundation of all standing poses. Improves posture and balance.</p>
+                        <div class="pose-benefits">
+                            <span class="benefit">Balance</span>
+                            <span class="benefit">Posture</span>
+                            <span class="benefit">Focus</span>
+                        </div>
+                        <button class="btn btn-outline" onclick="showPoseDetails('mountain')">Learn More</button>
+                    </div>
+
+                    <!-- Tree Pose -->
+                    <div class="pose-card" data-pose="tree">
+                        <div class="pose-icon">
+                            <i class="fas fa-tree"></i>
+                        </div>
+                        <h3>Tree Pose</h3>
+                        <p class="pose-sanskrit">Vrikshasana</p>
+                        <p class="pose-description">A balancing pose that strengthens legs and improves concentration.</p>
+                        <div class="pose-benefits">
+                            <span class="benefit">Balance</span>
+                            <span class="benefit">Strength</span>
+                            <span class="benefit">Concentration</span>
+                        </div>
+                        <button class="btn btn-outline" onclick="showPoseDetails('tree')">Learn More</button>
+                    </div>
+
+                    <!-- Easy Pose -->
+                    <div class="pose-card" data-pose="sukasana">
+                        <div class="pose-icon">
+                            <i class="fas fa-lotus"></i>
+                        </div>
+                        <h3>Easy Pose</h3>
+                        <p class="pose-sanskrit">Sukasana</p>
+                        <p class="pose-description">A comfortable seated meditation pose that calms the mind.</p>
+                        <div class="pose-benefits">
+                            <span class="benefit">Meditation</span>
+                            <span class="benefit">Calm</span>
+                            <span class="benefit">Flexibility</span>
+                        </div>
+                        <button class="btn btn-outline" onclick="showPoseDetails('sukasana')">Learn More</button>
+                    </div>
+
+                    <!-- Child's Pose -->
+                    <div class="pose-card" data-pose="childs_pose">
+                        <div class="pose-icon">
+                            <i class="fas fa-baby"></i>
+                        </div>
+                        <h3>Child's Pose</h3>
+                        <p class="pose-sanskrit">Balasana</p>
+                        <p class="pose-description">A restorative pose that relieves stress and stretches the back.</p>
+                        <div class="pose-benefits">
+                            <span class="benefit">Relaxation</span>
+                            <span class="benefit">Stress Relief</span>
+                            <span class="benefit">Back Stretch</span>
+                        </div>
+                        <button class="btn btn-outline" onclick="showPoseDetails('childs_pose')">Learn More</button>
+                    </div>
+
+                    <!-- Warrior II -->
+                    <div class="pose-card" data-pose="warrior2">
+                        <div class="pose-icon">
+                            <i class="fas fa-fist-raised"></i>
+                        </div>
+                        <h3>Warrior II</h3>
+                        <p class="pose-sanskrit">Virabhadrasana II</p>
+                        <p class="pose-description">A powerful standing pose that builds strength and stamina.</p>
+                        <div class="pose-benefits">
+                            <span class="benefit">Strength</span>
+                            <span class="benefit">Stamina</span>
+                            <span class="benefit">Confidence</span>
+                        </div>
+                        <button class="btn btn-outline" onclick="showPoseDetails('warrior2')">Learn More</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Practice Section -->
+        <section id="practice" class="practice-section">
+            <div class="container">
+                <h2 class="section-title">AI-Powered Practice</h2>
+                <div class="practice-content">
+                    <div class="practice-info">
+                        <h3>Real-time Pose Detection</h3>
+                        <ul class="feature-list">
+                            <li><i class="fas fa-check"></i> Live camera feedback</li>
+                            <li><i class="fas fa-check"></i> Pose accuracy scoring</li>
+                            <li><i class="fas fa-check"></i> Voice guidance</li>
+                            <li><i class="fas fa-check"></i> Progress tracking</li>
+                        </ul>
+                        <button class="btn btn-primary" onclick="initializeCamera()">
+                            <i class="fas fa-camera"></i> Start Camera
+                        </button>
+                    </div>
+                    <div class="camera-container">
+                        <video id="videoElement" autoplay muted></video>
+                        <canvas id="canvasElement"></canvas>
+                        <div class="pose-feedback">
+                            <div class="current-pose">
+                                <span id="currentPoseName">Select a pose to begin</span>
+                            </div>
+                            <div class="score-display">
+                                <span>Score: </span>
+                                <span id="poseScore">0</span>/100
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="pose-selector">
+                    <button class="pose-btn" onclick="selectPose('mountain')">Mountain</button>
+                    <button class="pose-btn" onclick="selectPose('tree')">Tree</button>
+                    <button class="pose-btn" onclick="selectPose('sukasana')">Easy Pose</button>
+                    <button class="pose-btn" onclick="selectPose('childs_pose')">Child's Pose</button>
+                    <button class="pose-btn" onclick="selectPose('warrior2')">Warrior II</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="about-section">
+            <div class="container">
+                <h2 class="section-title">About AI Yoga Instructor</h2>
+                <div class="about-content">
+                    <div class="about-text">
+                        <p>Our AI Yoga Instructor uses advanced computer vision and machine learning to provide real-time feedback on your yoga practice. Perfect your form, track your progress, and deepen your practice with personalized guidance.</p>
+                        <div class="features">
+                            <div class="feature">
+                                <i class="fas fa-robot"></i>
+                                <h4>AI-Powered</h4>
+                                <p>Advanced pose detection technology</p>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-chart-line"></i>
+                                <h4>Progress Tracking</h4>
+                                <p>Monitor your improvement over time</p>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-microphone"></i>
+                                <h4>Voice Guidance</h4>
+                                <p>Audio instructions and feedback</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Pose Details Modal -->
+    <div id="poseModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closePoseModal()">&times;</span>
+            <div id="poseModalContent">
+                <!-- Content will be dynamically loaded -->
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 AI Yoga Instructor. Practice mindfully, grow spiritually.</p>
+        </div>
+    </footer>
+
+    <!-- MediaPipe Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/control_utils/control_utils.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils/drawing_utils.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/pose/pose.js" crossorigin="anonymous"></script>
+    
+    <script src="script.js"></script>
+</body>
+</html>
