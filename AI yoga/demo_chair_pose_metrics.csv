@@ -1,0 +1,5 @@
+﻿Metric,Value,Percentage,Formula
+Accuracy,0.9300,93.00%,(TP + TN) / Total
+Precision,0.9024,90.24%,TP / (TP + FP)
+Recall,0.9250,92.50%,TP / (TP + FN)
+F1_Score,0.9136,91.36%,2 × (Precision × Recall) / (Precision + Recall)

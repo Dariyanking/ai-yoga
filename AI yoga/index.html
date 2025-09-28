@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Yoga Pose Assistant</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🧘‍♀️ AI Yoga Pose Assistant</h1>
+            <p class="subtitle">Voice-controlled yoga practice</p>
+        </header>
+
+        <!-- Voice Status -->
+        <div class="voice-status">
+            <div class="mic-indicator" id="micIndicator">
+                <span class="mic-icon">🎤</span>
+                <span class="status-text" id="statusText">Click to start voice commands</span>
+            </div>
+            <button id="toggleVoice" class="voice-btn">Start Listening</button>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Category Selection -->
+            <div class="section" id="categorySection">
+                <h2>Choose Your Category</h2>
+                <div class="category-grid">
+                    <div class="category-card" data-category="weight-loss">
+                        <div class="category-icon">🔥</div>
+                        <h3>Weight Loss</h3>
+                        <p>Fat burning poses</p>
+                    </div>
+                    <div class="category-card" data-category="weight-gain">
+                        <div class="category-icon">💪</div>
+                        <h3>Weight Gain</h3>
+                        <p>Muscle building poses</p>
+                    </div>
+                    <div class="category-card" data-category="beginner">
+                        <div class="category-icon">🌱</div>
+                        <h3>Beginner</h3>
+                        <p>Easy starter poses</p>
+                    </div>
+                    <div class="category-card" data-category="regular">
+                        <div class="category-icon">⚡</div>
+                        <h3>Regular</h3>
+                        <p>Standard practice</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pose Display -->
+            <div class="section hidden" id="poseSection">
+                <div class="pose-header">
+                    <button id="backBtn" class="back-btn">← Back to Categories</button>
+                    <div class="category-badge" id="currentCategory"></div>
+                </div>
+
+                <!-- Pose Selection Bar -->
+                <div class="pose-selection-bar">
+                    <h3>Select Pose:</h3>
+                    <div class="pose-tabs" id="poseTabs">
+                        <!-- Pose tabs will be populated by JavaScript -->
+                    </div>
+                </div>
+
+                <!-- Pose Info Section -->
+                <div class="pose-info-section">
+                    <h2 id="poseName">Pose Name</h2>
+                    <div class="pose-counter">
+                        <span id="poseCounter">1 / 2</span>
+                    </div>
+                    <p id="poseDescription">Pose description will appear here...</p>
+                    
+                    <div class="pose-instructions">
+                        <h3>Instructions:</h3>
+                        <ul id="poseInstructions"></ul>
+                    </div>
+
+                    <div class="pose-benefits">
+                        <h3>Benefits:</h3>
+                        <p id="poseBenefits"></p>
+                    </div>
+
+                    <div class="pose-timer">
+                        <h3>Hold Duration:</h3>
+                        <div class="timer-controls">
+                            <button id="startTimer" class="timer-btn">Start Timer</button>
+                            <button id="stopTimer" class="timer-btn hidden">Stop</button>
+                            <span id="timerDisplay">00:00</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Side by Side Visual Section -->
+                <div class="visual-container">
+                    <!-- Camera Section -->
+                    <div class="camera-section">
+                        <h3>📷 Your Practice</h3>
+                        <div class="camera-container">
+                            <video id="cameraPreview" autoplay muted></video>
+                            <div class="camera-overlay">
+                                <div class="pose-detection-placeholder">
+                                    <span>📷 Camera Preview</span>
+                                    <p>Pose detection coming soon...</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="camera-controls">
+                            <button id="startCamera" class="camera-btn">Start Camera</button>
+                            <button id="stopCamera" class="camera-btn hidden">Stop Camera</button>
+                        </div>
+                    </div>
+
+                    <!-- Pose Reference Image -->
+                    <div class="pose-reference">
+                        <h3>🧘‍♀️ Pose Reference</h3>
+                        <div class="pose-image-container">
+                            <div class="pose-image" id="poseImage">
+                                <div class="pose-illustration" id="poseIllustration">
+                                    <!-- SVG or text illustration will be inserted here -->
+                                </div>
+                            </div>
+                            <p class="pose-image-caption" id="poseImageCaption">Reference pose illustration</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pose-navigation">
+                    <button id="prevPose" class="nav-btn">← Previous</button>
+                    <button id="nextPose" class="nav-btn">Next →</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Voice Commands Help -->
+        <div class="voice-help">
+            <h3>Voice Commands:</h3>
+            <div class="commands-list">
+                <span class="command">"beginner" / "weight loss" / "weight gain" / "regular"</span>
+                <span class="command">"next pose" / "previous pose"</span>
+                <span class="command">"start camera" / "stop camera"</span>
+                <span class="command">"back" / "go back"</span>
+            </div>
+        </div>
+
+        <!-- Audio Element for TTS -->
+        <audio id="audioPlayer" hidden></audio>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,864 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    min-height: 100vh;
+}
+
+/* Header */
+header {
+    text-align: center;
+    margin-bottom: 30px;
+    color: white;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.subtitle {
+    font-size: 1.1rem;
+    opacity: 0.9;
+    margin-bottom: 0;
+}
+
+/* Voice Status */
+.voice-status {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 15px;
+    padding: 20px;
+    margin-bottom: 30px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.2);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.mic-indicator {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-grow: 1;
+}
+
+.mic-icon {
+    font-size: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.mic-indicator.listening .mic-icon {
+    animation: pulse 1.5s infinite;
+    color: #e74c3c;
+}
+
+.status-text {
+    font-weight: 500;
+    color: #555;
+}
+
+.voice-btn {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.voice-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+}
+
+.voice-btn.active {
+    background: linear-gradient(135deg, #e74c3c, #c0392b);
+    animation: pulse 2s infinite;
+}
+
+/* Main Content */
+.main-content {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+    padding: 30px;
+    margin-bottom: 30px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.2);
+    min-height: 500px;
+}
+
+.section {
+    transition: all 0.3s ease;
+}
+
+.hidden {
+    display: none;
+}
+
+/* Category Grid */
+.category-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+    margin-top: 20px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.category-card {
+    background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+    border-radius: 20px;
+    padding: 35px 25px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+    border: 3px solid transparent;
+    aspect-ratio: 1.2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.category-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.2);
+    border-color: #667eea;
+    background: linear-gradient(135deg, #fff, #f8f9fa);
+}
+
+.category-icon {
+    font-size: 4rem;
+    margin-bottom: 20px;
+    display: block;
+    filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.1));
+}
+
+.category-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: #333;
+    font-weight: 700;
+}
+
+.category-card p {
+    color: #666;
+    font-size: 1rem;
+    font-weight: 500;
+    margin: 0;
+}
+
+/* Pose Section */
+.pose-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.back-btn {
+    background: #6c757d;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.back-btn:hover {
+    background: #5a6268;
+    transform: translateY(-2px);
+}
+
+.category-badge {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+/* Pose Selection Bar */
+.pose-selection-bar {
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 15px;
+    padding: 20px;
+    margin-bottom: 25px;
+    border: 1px solid rgba(255,255,255,0.3);
+}
+
+.pose-selection-bar h3 {
+    color: #333;
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+}
+
+.pose-tabs {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.pose-tab {
+    background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+    border: 2px solid transparent;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: 500;
+    color: #555;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.pose-tab:hover {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.pose-tab.active {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    border-color: #5a67d8;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+}
+
+/* Pose Info Section */
+.pose-info-section {
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 15px;
+    padding: 25px;
+    margin-bottom: 25px;
+    border: 1px solid rgba(255,255,255,0.3);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+/* Visual Container - Side by Side */
+.visual-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+    margin-bottom: 30px;
+}
+
+.pose-info-section h2,
+.pose-info h2 {
+    color: #333;
+    margin-bottom: 10px;
+    font-size: 1.8rem;
+}
+
+.pose-counter {
+    background: #e9ecef;
+    display: inline-block;
+    padding: 5px 12px;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #666;
+    margin-bottom: 15px;
+}
+
+.pose-info p {
+    color: #555;
+    margin-bottom: 20px;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+.pose-instructions, .pose-benefits {
+    margin-bottom: 20px;
+}
+
+.pose-instructions h3, .pose-benefits h3 {
+    color: #333;
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+}
+
+.pose-instructions ul {
+    padding-left: 20px;
+}
+
+.pose-instructions li {
+    margin-bottom: 8px;
+    color: #555;
+    line-height: 1.5;
+}
+
+/* Pose Timer */
+.pose-timer {
+    margin-bottom: 20px;
+}
+
+.pose-timer h3 {
+    color: #333;
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+}
+
+.timer-controls {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.timer-btn {
+    background: linear-gradient(135deg, #17a2b8, #138496);
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.timer-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+#timerDisplay {
+    background: linear-gradient(135deg, #343a40, #495057);
+    color: white;
+    padding: 8px 16px;
+    border-radius: 15px;
+    font-weight: 600;
+    font-family: 'Courier New', monospace;
+    font-size: 1.1rem;
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.2);
+}
+
+/* Pose Reference Section */
+.pose-reference {
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+    padding: 20px;
+    border: 1px solid rgba(255,255,255,0.3);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.pose-reference h3 {
+    color: #333;
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+    text-align: center;
+}
+
+.pose-image-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.pose-image {
+    background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+    border-radius: 15px;
+    padding: 20px;
+    margin-bottom: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    border: 2px solid rgba(102, 126, 234, 0.2);
+    min-height: 200px;
+    min-width: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.pose-image-caption {
+    color: #666;
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-align: center;
+    margin: 0;
+}
+
+/* Stick Figure Illustrations */
+.stick-figure {
+    position: relative;
+    width: 120px;
+    height: 150px;
+    margin: 0 auto;
+}
+
+.stick-figure .head {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #667eea;
+    position: absolute;
+    top: 10px;
+    left: 50px;
+}
+
+.stick-figure .body {
+    width: 4px;
+    height: 60px;
+    background: #667eea;
+    position: absolute;
+    top: 30px;
+    left: 58px;
+}
+
+.stick-figure .left-arm,
+.stick-figure .right-arm {
+    width: 4px;
+    height: 30px;
+    background: #667eea;
+    position: absolute;
+    top: 40px;
+    border-radius: 2px;
+}
+
+.stick-figure .left-arm {
+    left: 40px;
+    transform-origin: bottom;
+}
+
+.stick-figure .right-arm {
+    left: 76px;
+    transform-origin: bottom;
+}
+
+.stick-figure .left-leg,
+.stick-figure .right-leg {
+    width: 4px;
+    height: 40px;
+    background: #667eea;
+    position: absolute;
+    top: 90px;
+    border-radius: 2px;
+}
+
+.stick-figure .left-leg {
+    left: 50px;
+    transform-origin: top;
+}
+
+.stick-figure .right-leg {
+    left: 66px;
+    transform-origin: top;
+}
+
+/* Warrior III Pose */
+.stick-figure.warrior3 .left-arm.extended {
+    transform: rotate(-45deg);
+}
+
+.stick-figure.warrior3 .right-arm.extended {
+    transform: rotate(-135deg);
+}
+
+.stick-figure.warrior3 .right-leg.extended-back {
+    transform: rotate(-45deg) translateY(-10px);
+    height: 50px;
+}
+
+.stick-figure.warrior3 .body {
+    transform: rotate(-15deg);
+}
+
+/* Chair Pose */
+.stick-figure.chair .body.bent {
+    transform: rotate(15deg);
+}
+
+.stick-figure.chair .left-arm.raised {
+    transform: rotate(-60deg);
+}
+
+.stick-figure.chair .right-arm.raised {
+    transform: rotate(-120deg);
+}
+
+.stick-figure.chair .left-leg.bent,
+.stick-figure.chair .right-leg.bent {
+    transform: rotate(30deg);
+    height: 30px;
+}
+
+/* Tree Pose */
+.stick-figure.tree .left-arm.prayer,
+.stick-figure.tree .right-arm.prayer {
+    transform: rotate(-90deg);
+    height: 20px;
+    top: 35px;
+}
+
+.stick-figure.tree .right-leg.bent-up {
+    transform: rotate(90deg) translateX(-10px);
+    height: 25px;
+    top: 80px;
+}
+
+/* Mountain Pose */
+.stick-figure.mountain .left-arm.side,
+.stick-figure.mountain .right-arm.side {
+    transform: rotate(-10deg);
+}
+
+/* Child's Pose */
+.stick-figure.child .head.down {
+    top: 80px;
+    left: 30px;
+}
+
+.stick-figure.child .body.folded {
+    width: 30px;
+    height: 20px;
+    border-radius: 15px;
+    top: 70px;
+    left: 45px;
+}
+
+.stick-figure.child .left-arm.extended-front,
+.stick-figure.child .right-arm.extended-front {
+    transform: rotate(-45deg);
+    height: 35px;
+    top: 60px;
+}
+
+.stick-figure.child .left-leg.tucked,
+.stick-figure.child .right-leg.tucked {
+    transform: rotate(120deg);
+    height: 30px;
+    top: 75px;
+}
+
+/* Downward Dog */
+.stick-figure.downdog .head.down {
+    top: 100px;
+    left: 30px;
+}
+
+.stick-figure.downdog .body.inverted {
+    transform: rotate(-45deg);
+    top: 60px;
+    left: 45px;
+}
+
+.stick-figure.downdog .left-arm.planted,
+.stick-figure.downdog .right-arm.planted {
+    transform: rotate(-135deg);
+    top: 80px;
+}
+
+.stick-figure.downdog .left-leg.straight-up,
+.stick-figure.downdog .right-leg.straight-up {
+    transform: rotate(-45deg);
+    top: 50px;
+}
+
+/* Camel Pose */
+.stick-figure.camel .head.back {
+    top: 20px;
+    left: 45px;
+}
+
+.stick-figure.camel .body.arched {
+    transform: rotate(20deg);
+    border-radius: 20px 0;
+}
+
+.stick-figure.camel .left-arm.back,
+.stick-figure.camel .right-arm.back {
+    transform: rotate(30deg);
+    top: 65px;
+}
+
+.stick-figure.camel .left-leg.kneeling,
+.stick-figure.camel .right-leg.kneeling {
+    height: 25px;
+    top: 95px;
+}
+
+/* Fish Pose */
+.stick-figure.fish .head.tilted {
+    top: 40px;
+    left: 45px;
+}
+
+.stick-figure.fish .body.arched-back {
+    transform: rotate(-20deg);
+    border-radius: 0 20px;
+    top: 50px;
+}
+
+.stick-figure.fish .left-arm.side,
+.stick-figure.fish .right-arm.side {
+    top: 60px;
+}
+
+.stick-figure.fish .left-leg.straight,
+.stick-figure.fish .right-leg.straight {
+    top: 110px;
+}
+
+.pose-name-small {
+    text-align: center;
+    color: #667eea;
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-top: 10px;
+}
+
+/* Camera Section */
+.camera-section {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.camera-container {
+    position: relative;
+    background: #000;
+    border-radius: 15px;
+    overflow: hidden;
+    aspect-ratio: 4/3;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+#cameraPreview {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.camera-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.pose-detection-placeholder span {
+    font-size: 2rem;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.pose-detection-placeholder p {
+    font-size: 1rem;
+    opacity: 0.8;
+    margin: 0;
+}
+
+.camera-controls {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.camera-btn {
+    background: linear-gradient(135deg, #28a745, #20c997);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.camera-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+/* Navigation */
+.pose-navigation {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.nav-btn {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.nav-btn:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+}
+
+.nav-btn:disabled {
+    background: #6c757d;
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+/* Voice Commands Help */
+.voice-help {
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.2);
+}
+
+.voice-help h3 {
+    color: #333;
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+}
+
+.commands-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.command {
+    background: linear-gradient(135deg, #e9ecef, #f8f9fa);
+    padding: 6px 12px;
+    border-radius: 15px;
+    font-size: 0.85rem;
+    color: #555;
+    font-weight: 500;
+    border: 1px solid #dee2e6;
+}
+
+/* Animations */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.1);
+        opacity: 0.7;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+    }
+    
+    header h1 {
+        font-size: 2rem;
+    }
+    
+    .voice-status {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .visual-container {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .category-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+        max-width: 400px;
+    }
+    
+    .pose-header {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .back-btn {
+        align-self: flex-start;
+    }
+    
+    .category-badge {
+        text-align: center;
+    }
+    
+    .pose-navigation {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .commands-list {
+        flex-direction: column;
+    }
+    
+    .command {
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 1.7rem;
+    }
+    
+    .main-content {
+        padding: 20px;
+    }
+    
+    .pose-info h2 {
+        font-size: 1.5rem;
+    }
+    
+    .category-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .camera-controls {
+        flex-direction: column;
+    }
+}
